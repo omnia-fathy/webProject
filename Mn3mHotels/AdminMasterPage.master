@@ -1,0 +1,114 @@
+﻿<%@ Master Language="C#" %>
+
+<!DOCTYPE html>
+
+<script runat="server">
+    protected void Page_Load(object sender, EventArgs e)
+    {
+
+        string username = "";
+        if (Request.Cookies["userinfo"] != null)
+        {
+            username = Request.Cookies["userinfo"].Values["usern"];
+
+            lblmsg.Text = "Welcome " + username;
+        }
+        else lblmsg.Text = "teeeeeet";
+    }
+</script>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+        .auto-style1 {
+            width: 100%;
+            height: 450px;
+        }
+        .auto-style2 {
+            height: 135px;
+        }
+        .auto-style3 {
+            height: 55px;
+        }
+        .auto-style4 {
+            height: 205px;
+        }
+        .auto-style5 {
+            width: 100%;
+        }
+        .auto-style6 {
+            width: 316px;
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+        &nbsp;<table class="auto-style1">
+            <tr>
+                <td class="auto-style2">
+                    <table class="auto-style5">
+                        <tr>
+                            <td class="auto-style6">
+                                <asp:Image ID="Image1" runat="server" Height="180px" Width="228px" />
+                            </td>
+                            <td>
+                                <asp:Label ID="lblmsg" runat="server" Font-Bold="True" Font-Size="X-Large"></asp:Label>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td class="auto-style3">
+                    <table class="auto-style5">
+                        <tr>
+                            <td>
+                                <asp:HyperLink ID="Home" runat="server" NavigateUrl="~/adminHome.aspx">Home</asp:HyperLink>
+                            </td>
+                            <td>
+                                <asp:HyperLink ID="edithomelink" runat="server" NavigateUrl="~/accountsList.aspx">Accounts list</asp:HyperLink>
+                            </td>
+                            <td>
+                                <asp:HyperLink ID="browslink0" runat="server" NavigateUrl="~/accountsListByType.aspx">Accounts List By Type</asp:HyperLink>
+                            </td>
+                            <td>
+                                <asp:HyperLink ID="browslink" runat="server" NavigateUrl="~/accountsListByCountry.aspx">Accounts List By Nationality</asp:HyperLink>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            </td>
+                            <td>
+                                <asp:HyperLink ID="Home1" runat="server" NavigateUrl="~/generalSql.aspx">General SQL</asp:HyperLink>
+                            </td>
+                            <td>
+                                <br />
+                            </td>
+                            <td>&nbsp;</td>
+                            <td>
+                                <asp:HyperLink ID="logoutlink" runat="server" NavigateUrl="~/signin.aspx">Log out</asp:HyperLink>
+                            </td>
+                        </tr>
+                    </table>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td>
+            </tr>
+            <tr>
+                <td class="auto-style4">
+        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        
+            <p>
+                &nbsp;</p>
+&nbsp;
+        
+        </asp:ContentPlaceHolder>
+                </td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+            </tr>
+        </table>
+    </div>
+    </form>
+</body>
+</html>
